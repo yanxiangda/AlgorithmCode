@@ -13,6 +13,7 @@ haveValue = recordResult[startIndex][endIndex]
 ```
 替代后，效率有较大提升，可AC全部。
 <br>
-
+（4）注意边界条件，当字符串剩0个时候，和剩1个的时候。
+<br>
 
 
