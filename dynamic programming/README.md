@@ -22,10 +22,10 @@ haveValue = recordResult[startIndex][endIndex]
 >这题有两种解决方法，一种是动态规划复杂度为$O(n^2)$，另一种是Manacher's Algorithm复杂度是$O(n)$，本部分只关注动态规划的思想，因为不适用马拉车的方法。
 <br>
 (1)与最长回文子序列不同，最长子串不存在一些"贪心"的思路，比如第一个和最后一个字母相同时，得到的解一定优于只去掉第一个或者只去掉最后一个的。比如'aababa'，去掉首尾后的'abab'不是子串，而只去掉首的'ababa'优于前一种。因此判断的时候要多加了一层，
-```
+`
 if ((strList[startIndex] == strList[endIndex]) & (self.localCalculate(strList, startIndex + 1, endIndex - 1, recordResult) == 1)):
 return 1
-```
+`
 即只有两个条件同时满足时，才不用计算另两种情况。
 <br>
 (2)与第一种不同的是，最长子序列只要返回数量，如果要返回具体的字符串，需要一种优化方法，现在想的方法是在存储的二维结果数组中遍历最大，可能影响了一定的效率，动态规划方法只AC了38/103的测试用例。
