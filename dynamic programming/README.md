@@ -8,9 +8,9 @@
 (2)上面的动态规划思想还有优化的空间，即用内存代替一部分搜索时间，建立一个保存，把计算过的都保存下来，这样再遇到的时候避免重复计算。到这一步可以AC82/83的测试用例
 <br>
 (3)还有一个没AC，从代码上做小部分的优化即可以了，重点优化重复计算的变量，当变量被多次使用时，不要重复计算，比如,
-```
-haveValue = recordResult[startIndex][endIndex]
-```
+
+    haveValue = recordResult[startIndex][endIndex]
+
 替代后，效率有较大提升，可AC全部。
 <br>
 (4)注意边界条件，当字符串剩0个时候，和剩1个的时候。
@@ -24,7 +24,7 @@ haveValue = recordResult[startIndex][endIndex]
 (1)与最长回文子序列不同，最长子串不存在一些"贪心"的思路，比如第一个和最后一个字母相同时，得到的解一定优于只去掉第一个或者只去掉最后一个的。比如'aababa'，去掉首尾后的'abab'不是子串，而只去掉首的'ababa'优于前一种。因此判断的时候要多加了一层，
 
     if ((strList[startIndex] == strList[endIndex]) & (self.localCalculate(strList, startIndex + 1, endIndex - 1, recordResult) == 1)):
-    return 1
+        return 1
 
 即只有两个条件同时满足时，才不用计算另两种情况。
 <br>
