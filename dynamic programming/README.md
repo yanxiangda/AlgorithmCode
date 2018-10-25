@@ -8,7 +8,7 @@
 (2)上面的动态规划思想还有优化的空间，即用内存代替一部分搜索时间，建立一个保存，把计算过的都保存下来，这样再遇到的时候避免重复计算。到这一步可以AC82/83的测试用例
 <br>
 (3)还有一个没AC，从代码上做小部分的优化即可以了，重点优化重复计算的变量，当变量被多次使用时，不要重复计算，比如,
-```python
+```
 haveValue = recordResult[startIndex][endIndex]
 ```
 替代后，效率有较大提升，可AC全部。
@@ -19,12 +19,12 @@ haveValue = recordResult[startIndex][endIndex]
 ## longest-palindromic-substring
 字符串的最长回文子串
 <br>
->这题有两种解决方法，一种是动态规划复杂度为$O(n^2)$，另一种是Manacher's Algorithm复杂度是$O(n)$，本部分只关注动态规划的思想，因为不适用马拉车的方法。<
+>这题有两种解决方法，一种是动态规划复杂度为$O(n^2)$，另一种是Manacher's Algorithm复杂度是$O(n)$，本部分只关注动态规划的思想，因为不适用马拉车的方法。
 <br>
 (1)与最长回文子序列不同，最长子串不存在一些"贪心"的思路，比如第一个和最后一个字母相同时，得到的解一定优于只去掉第一个或者只去掉最后一个的。比如'aababa'，去掉首尾后的'abab'不是子串，而只去掉首的'ababa'优于前一种。因此判断的时候要多加了一层，
-```python
+```
 if ((strList[startIndex] == strList[endIndex]) & (self.localCalculate(strList, startIndex + 1, endIndex - 1, recordResult) == 1)):
-    return 1
+return 1
 ```
 即只有两个条件同时满足时，才不用计算另两种情况。
 <br>
