@@ -25,29 +25,29 @@ class Solution:
     def Optimization(self, nums, k, start, end, record):
         if start > end:
             return 0
-        haveValue = record[start][end]
-        if haveValue != None:
-            return haveValue
         if start == end:
             return nums[start]
+        haveValue = record[start][end]
+        if haveValue != None:
+            return haveValue 
         rightSum = self.Optimization(nums, k, start + 1, end, record)
+        if (rightSum == -2):
+            return -2
         leftSum = self.Optimization(nums, k, start, end - 1, record)
-        if ((rightSum == -2) | (leftSum == -2)):
+        if (leftSum == -2):
             return -2
         currentValue = nums[start] + rightSum
         if currentValue == 0:
             return -2
         if k == 0:
-            if currentValue == 0:
-                return -2
-            else:
-                record[start][end] = currentValue
-                return currentValue
+            record[start][end] = currentValue
+            return currentValue
         if currentValue % abs(k) == 0:
             return -2
         else:
             record[start][end] = currentValue
             return currentValue
+
 
 
 
