@@ -1,5 +1,4 @@
 
-
 # 最大二叉树
 class Solution:
     def constructMaximumBinaryTree(self, nums):
