@@ -74,7 +74,11 @@ def merge(data, s1, e1, s2, e2):
     for i in range(s, e2+1):
         data[i] = assist[i-s]
 
-
+# 数据测试
+data = [6,1,2,7,9,3,4,5,10,8]
+print (data)
+quicksort(data, 0, len(data)-1)
+print (data)
 
 
 
