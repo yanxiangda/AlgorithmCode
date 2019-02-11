@@ -25,6 +25,13 @@ quicksort(data, baseIndex, max(minIndex - 1, baseIndex))
 quicksort(data, min(minIndex + 1, fixIndex), fixIndex)
 ```
 **2.2 归并排序 merge sort**<br>
-
+（1）归并排序首先要实现一个用于将两个有序数列合并为一个有序数列的方法，即代码中的`merge()`方法，该方法的实现逻辑，需要利用一个辅助的空间，先依次把两个有序数组中更小的取出来，对于没有取完的数组，直接全部取出，再降辅助空间的数据复制到原数组上。
+<br>
+（2）先拆分，再归并。
+<br>
+（3）注意的是，如果函数是采用索引形式的，那么`midIndex`要计算的是索引，要加上`startIndex`，
+```python
+midIndex = start + int((size) / 2)
+```
 **2.3 堆排序**<br>
 
